@@ -26,7 +26,8 @@
 				this.$router.push({
 					name: 'tag',
 					params: {
-						'name': name
+						'name': name,
+						'pass': 123
 					}
 				});
 			}
@@ -39,17 +40,17 @@
 		color: #409EFF;
 		cursor: pointer;
 	}
-	
+
 	.box-card span {
 		font-weight: bold;
 	}
-	
+
 	.card-icon {
 		width: 20px;
 		height: 20px;
 		margin-right: 10px;
 	}
-	
+
 	.tag-item {
 		margin-right: 10px;
 	}

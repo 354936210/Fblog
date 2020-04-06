@@ -24,7 +24,7 @@
 				</div>
 				<div class="item">
 					<i class="el-icon-caret-right"></i>
-					© fengziy-博客 | 渝ICP备17015355
+					© hello bird-博客 | 黑ICP备16001431号
 				</div>
 			</el-col>
 		</el-row>

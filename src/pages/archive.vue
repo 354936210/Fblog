@@ -40,12 +40,12 @@
 	.line-item {
 		display: inline-block;
 	}
-	
+
 	.line-item:hover {
 		cursor: pointer;
 		color: #409EFF;
 	}
-	
+
 	.count {
 		margin-bottom: 20px;
 		font-size: 20px;

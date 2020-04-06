@@ -9,8 +9,9 @@ import './assets/style.css'
 import fHeader from './components/f-header'
 import fFooter from './components/f-footer'
 import i18n from './i18n/i18n'
+import axios from 'axios'
 
-
+Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueRouter)
