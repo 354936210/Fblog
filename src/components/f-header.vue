@@ -1,7 +1,9 @@
 <template>
 	<div>
-		<el-menu :default-active="activeIndex" class="d-flex" mode="horizontal" router="true" type="flex">
-			<el-menu-item class="mr-auto">FZY</el-menu-item>
+		<el-menu :default-active="activeIndex" class="d-flex" mode="horizontal" :router="true" type="flex">
+
+			<el-menu-item  class="mr-auto">Hello Bird</el-menu-item>
+			<el-menu-item @click="show3 = !show3" class="el-icon-search">查询</el-menu-item>
 			<el-menu-item index="/home">{{$t("header.home")}}</el-menu-item>
 			<el-menu-item index="/archive">{{$t("header.archive")}}</el-menu-item>
 			<el-menu-item index="/about">{{$t("header.about")}}</el-menu-item>
@@ -10,15 +12,32 @@
 				<el-menu-item @click="toggleLang('zh')">{{$t("header.chinaese")}}</el-menu-item>
 				<el-menu-item @click="toggleLang('en')">{{$t("header.english")}}</el-menu-item>
 			</el-submenu>
+
 		</el-menu>
+		<div class="demo" >
+			<el-collapse-transition>
+				<div v-show="show3">
+					<el-row justify="space-around" type="flex" style="padding-top: 5px;padding-bottom: 5px" >
+						<el-col :span="10">
+							<el-input placeholder="输入关键字" v-model="searchStr">
+								<el-button  slot="append" icon="el-icon-search" type="success"></el-button>
+							</el-input>
+						</el-col>
+					</el-row>
+				</div>
+			</el-collapse-transition>
+		</div>
 	</div>
+
 </template>
 
 <script>
 	export default {
 		data() {
 			return {
-				activeIndex: '/home'
+				activeIndex: '/home',
+				show3: false,
+				searchStr:''
 			};
 		},
 		methods: {
@@ -44,5 +63,7 @@
 </script>
 
 <style scoped>
-
+	.demo{
+		background-color: #f9f9f9
+	}
 </style>

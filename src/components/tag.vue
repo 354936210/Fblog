@@ -6,13 +6,15 @@
 				<span>{{$t('tag.tag')}}</span>
 			</div>
 			<div class="text item">
-				<el-tag size="mini" class="tag-item" @click="tag('Java')">Java[12]</el-tag>
-				<el-tag size="mini" class="tag-item" type="success" @click="tag('SpringBoot')">SpringBoot[8]</el-tag>
-				<el-tag size="mini" class="tag-item" type="info" @click="tag('HTML')">HTML[8]</el-tag>
-				<el-tag size="mini" class="tag-item" type="warning" @click="tag('Mysql')">Mysql[5]</el-tag>
-				<el-tag size="mini" class="tag-item" type="danger" @click="tag('Vue')">Vue[3]</el-tag>
-				<el-tag size="mini" class="tag-item" type="info" @click="tag('jQuery')">jQuery[6]</el-tag>
-				<el-tag size="mini" class="tag-item" type="success" @click="tag('SpringCloud')">SpringCloud[9]</el-tag>
+				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('Java')">Java[12]</el-tag>
+				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('SpringBoot')">SpringBoot[8]</el-tag>
+				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('HTML')">HTML[8]</el-tag>
+				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('Mysql')">Mysql[5]</el-tag>
+				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('Vue')">Vue[3]</el-tag>
+				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('jQuery')">jQuery[6]</el-tag>
+				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('SpringCloud')">SpringCloud[9]</el-tag>
+				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('SpringCloud')">SpringCloud[9]</el-tag>
+				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('SpringCloud')">SpringCloud[8]</el-tag>
 			</div>
 		</el-card>
 	</div>
@@ -30,6 +32,22 @@
 						'pass': 123
 					}
 				});
+			},
+			getTypeMethod(){
+				//样式
+				var typeList=['','success','info','warning','info','danger']
+				var i=this.random(0,5);
+				//随机返回样式
+				return typeList[i];
+			},
+			//获取上下限均包含的随机数
+			random (min, max){
+				return Math.floor(Math.random() * (max- min + 1)) + min;
+			}
+		},
+		data() {
+			return{
+				varSuccess:'danger'
 			}
 		}
 	}

@@ -33,6 +33,12 @@ export default {
   	}
   },
   mounted () {
+	  window.addEventListener('hashchange',()=>{
+		  var currentPath = window.location.hash.slice(1); // 获取输入的路由
+		  if(this.$router.path !== currentPath){
+			  this.$router.push(currentPath); // 动态跳转
+		  }
+	  },false);
   		let that = this
   		that.minHeight = document.documentElement.clientHeight
   		window.addEventListener('scroll', that.watchScroll)
@@ -49,7 +55,7 @@ export default {
 	}
 	#content{
 		background-color: #f9f9f9;
-		padding: 30px 0;
+		padding: 10px 0;
 	}
 	.navBarWrap {
     position:fixed;

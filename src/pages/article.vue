@@ -22,8 +22,9 @@
 				</div>
 				<hr />
 				<div id="artcle-content">
-					<div v-html="mArticle.articleDtl.articleContent"></div>
-					<p><span style="color:#3399ea;"><em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 向上的路并不拥挤，到多数人选择了安逸！--it疯子也</em></span></p>
+					<vue-markdown :source="mArticle.articleDtl.articleContent"></vue-markdown>
+<!--					<div v-html="mArticle.articleDtl.articleContent"></div>-->
+					<p><span style="color:#3399ea;"><em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 即使做咸鱼，也要当最咸的那条--Hello Bird</em></span></p>
 				</div>
 				<div id="statement">
 					<div class="item">{{$t('article.author')}}：hello bird</div>
@@ -38,6 +39,7 @@
 </template>
 
 <script>
+	import VueMarkdown from 'vue-markdown'
 	export default {
 		name: 'article',
 		data() {
@@ -53,10 +55,15 @@
 
 		},
 		created() {
-			var articleId=this.$route.params.id;
+			var articleId1=this.$route.params.id;
+			console.log(articleId1)
+			var articleId=this.$route.query.id;
 			this.$axios.get("/article/getOne?id="+articleId).then(
 					value => this.mArticle = value.data
 			)
+		},
+		components: {
+			VueMarkdown
 		}
 	}
 </script>

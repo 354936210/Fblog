@@ -4,13 +4,13 @@
             <el-col :span="16">
                 <el-row class="art-item" v-for="article of articleList" v-bind:key="article.id">
                     <el-card shadow="hover">
-                        <h5>
-                            <router-link to="/article" tag="span" class="art-title">{{article.title}}</router-link>
+                        <h5 >
+                            <div @click="article_more(article.id)"  class="art-title">{{article.title}}</div>
                         </h5>
                         <el-row class="art-info d-flex align-items-center justify-content-start">
                             <div class="art-time"><i class="el-icon-time"></i>{{article.createTime}}</div>
                             <div class="d-flex align-items-center"><img class="tag" src="../assets/tag.png"/>：
-                                <el-tag size="mini">swagger2</el-tag>
+                                <el-tag v-for="tag of article.articleTags" size="mini">{{tag.tagName}}</el-tag>
                             </div>
                         </el-row>
                         <el-row class="art-body">
@@ -30,7 +30,12 @@
                     <img class="star" src="../assets/star.png"/>
                 </el-row>
                 <div class="block pagination">
-                    <el-pagination background="#f9f9f9" layout="prev, pager, next" :total="50">
+                    <el-pagination background layout="prev, pager, next"
+                                   :current-page="page.current"
+                                   :page-size="page.size"
+                                   :total="page.total"
+                                   @current-change="current_change"
+                    >
                     </el-pagination>
                 </div>
             </el-col>
@@ -55,17 +60,31 @@
         name: 'home',
         data() {
             return {
-                articleList: []
+                articleList: [],
+                page:{
+                    size: 4,
+                    current: 1,
+                    total: 200
+                }
             }
         },
         methods:{
+            current_change:function (val){
+                this.page.current=val
+                this.$axios.post("/article/getAllArticleWithTag",this.page)
+                    .then(
+                        value => {this.articleList = value.data.records;
+                        this.page.total=value.data.total}
+                    )
+            },
             article_more:function (id) {
+
                 this.$router.push({
                     name: 'article',
-                    params: {
-                        id: id
+                    query: {
+                        'id': id,
                     }
-                })
+                });
             }
         },
         components: {
@@ -73,15 +92,23 @@
             tag
         },
         created() {
-            this.$axios.get("/article/getAll")
+            this.$axios.post("/article/getAllArticleWithTag",this.page)
                 .then(
-                    value => this.articleList = value.data
+                    value => {this.articleList = value.data.records;
+                        this.page.total=value.data.total}
                 )
         }
     }
 </script>
 
 <style scoped>
+    .el-tag{
+        margin-right: 5px;
+    }
+    .search{
+        width: 100%;
+    }
+
     #side .item {
         margin-bottom: 30px;
     }
