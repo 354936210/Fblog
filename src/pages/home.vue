@@ -9,12 +9,14 @@
                         </h5>
                         <el-row class="art-info d-flex align-items-center justify-content-start">
                             <div class="art-time"><i class="el-icon-time"></i>{{article.createTime}}</div>
-                            <div class="d-flex align-items-center"><img class="tag" src="../assets/tag.png"/>：
-                                <el-tag v-for="tag of article.articleTags" size="mini">{{tag.tagName}}</el-tag>
+                            <div class="d-flex align-items-center tagItem"><img class="tag" src="../assets/tag.png"/>：
+                                <el-tag v-for="tag of article.articleTags" size="mini" @click="tagRoute(tag.tagName)" >{{tag.tagName}}</el-tag>
                             </div>
                         </el-row>
                         <el-row class="art-body">
-                            <div class="side-img hidden-sm-and-down"><img class="art-banner" src="../assets/vue.jpg">
+                            <div class="side-img hidden-sm-and-down">
+                                <img class="art-banner" :src="article.imgLazy" v-if="article.imgLazy !='' && article.imgLazy !=null ">
+                                <img class="art-banner" src="../assets/vue.jpg" v-else>
                             </div>
                             <div class="side-abstract">
                                 <div class="art-abstract">
@@ -27,6 +29,7 @@
                             </div>
                         </el-row>
                     </el-card>
+
                     <img class="star" src="../assets/star.png"/>
                 </el-row>
                 <div class="block pagination">
@@ -69,6 +72,15 @@
             }
         },
         methods:{
+            tagRoute(name) {
+                this.$router.push({
+                    name: 'tag',
+                    params: {
+                        'name': name,
+                        'pass': 123
+                    }
+                });
+            },
             current_change:function (val){
                 this.page.current=val
                 this.$axios.post("/article/getAllArticleWithTag",this.page)
@@ -102,6 +114,11 @@
 </script>
 
 <style scoped>
+
+    .tagItem:hover {
+        color: #409EFF;
+        cursor: pointer;
+    }
     .el-tag{
         margin-right: 5px;
     }

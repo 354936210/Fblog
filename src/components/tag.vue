@@ -6,15 +6,8 @@
 				<span>{{$t('tag.tag')}}</span>
 			</div>
 			<div class="text item">
-				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('Java')">Java[12]</el-tag>
-				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('SpringBoot')">SpringBoot[8]</el-tag>
-				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('HTML')">HTML[8]</el-tag>
-				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('Mysql')">Mysql[5]</el-tag>
-				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('Vue')">Vue[3]</el-tag>
-				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('jQuery')">jQuery[6]</el-tag>
-				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('SpringCloud')">SpringCloud[9]</el-tag>
-				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('SpringCloud')">SpringCloud[9]</el-tag>
-				<el-tag size="mini" class="tag-item" :type="getTypeMethod()" @click="tag('SpringCloud')">SpringCloud[8]</el-tag>
+				<el-tag v-for="mtag of tagList" v-bind:key="mtag.id" size="small" class="tag-item" :type="getTypeMethod()"
+						@click="tag(mtag.tagName)">{{mtag.tagName}}[{{mtag.total}}]</el-tag>
 			</div>
 		</el-card>
 	</div>
@@ -35,7 +28,7 @@
 			},
 			getTypeMethod(){
 				//样式
-				var typeList=['','success','info','warning','info','danger']
+				var typeList=['','success','info','warning','danger']
 				var i=this.random(0,5);
 				//随机返回样式
 				return typeList[i];
@@ -47,8 +40,16 @@
 		},
 		data() {
 			return{
-				varSuccess:'danger'
+				varSuccess:'danger',
+				tagList:[]
 			}
+		},
+		created() {
+			this.$axios.get("/tag/getWithNum").then(
+					value => {
+						this.tagList=value.data;
+					}
+			)
 		}
 	}
 </script>
