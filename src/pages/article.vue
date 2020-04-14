@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<el-row class="main" type="flex" justify="center">
-			<el-col :span="16">
+			<el-col :span="16" class="content">
 				<div id="artcle-info">
 					<h2 class="text-center"><strong>{{mArticle.title}}</strong></h2>
 					<!-- 描述：文章信息 -->
@@ -24,7 +24,7 @@
 				<div id="artcle-content">
 					<vue-markdown :source="mArticle.articleDtl.articleContent"></vue-markdown>
 <!--					<div v-html="mArticle.articleDtl.articleContent"></div>-->
-					<p><span style="color:#3399ea;"><em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 既然上了生活的贼船，那就做个快乐的海盗吧--Hello Bird</em></span></p>
+					<span style="color:#3399ea;"><em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 既然上了生活的贼船，那就做个快乐的海盗吧--Hello Bird</em></span></p>
 				</div>
 				<div id="statement">
 					<div class="item">{{$t('article.author')}}：hello bird</div>
@@ -106,7 +106,11 @@
 		padding: 20px;
 		background-color: #EBEEF5;
 	}
-	#artcle-content{
-
+	.content{
+        background-color: #f9f9f9;
 	}
+    #artcle-content{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 </style>
