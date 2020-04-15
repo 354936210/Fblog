@@ -7,7 +7,7 @@
 			</div>
 			<div class="text item">
 				<el-tag v-for="mtag of tagList" v-bind:key="mtag.id" size="small" class="tag-item" :type="getTypeMethod()"
-						@click="tag(mtag.tagName)">{{mtag.tagName}}[{{mtag.total}}]</el-tag>
+						@click="tag(mtag)">{{mtag.tagName}}[{{mtag.total}}]</el-tag>
 			</div>
 		</el-card>
 	</div>
@@ -17,19 +17,19 @@
 	export default {
 		name: 'tag',
 		methods: {
-			tag(name) {
+			tag(mtag) {
 				this.$router.push({
 					name: 'tag',
 					params: {
-						'name': name,
-						'pass': 123
+						'name': mtag.tagName,
+						'tagId': mtag.id
 					}
 				});
 			},
 			getTypeMethod(){
 				//样式
 				var typeList=['','success','info','warning','danger']
-				var i=this.random(0,5);
+				var i=this.random(0,4);
 				//随机返回样式
 				return typeList[i];
 			},

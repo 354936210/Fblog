@@ -10,7 +10,7 @@
                         <el-row class="art-info d-flex align-items-center justify-content-start">
                             <div class="art-time"><i class="el-icon-time"></i>{{article.createTime}}</div>
                             <div class="d-flex align-items-center tagItem"><img class="tag" src="../assets/tag.png"/>：
-                                <el-tag v-for="tag of article.articleTags" size="mini" @click="tagRoute(tag.tagName)" >{{tag.tagName}}</el-tag>
+                                <el-tag v-for="tag of article.articleTags" size="mini" @click="tagRoute(tag)" >{{tag.tagName}}</el-tag>
                             </div>
                         </el-row>
                         <el-row class="art-body">
@@ -72,12 +72,12 @@
             }
         },
         methods:{
-            tagRoute(name) {
+            tagRoute(mtag) {
                 this.$router.push({
                     name: 'tag',
                     params: {
-                        'name': name,
-                        'pass': 123
+                        'name': mtag.tagName,
+                        'tagId': mtag.tagId
                     }
                 });
             },
