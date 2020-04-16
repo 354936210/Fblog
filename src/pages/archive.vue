@@ -28,7 +28,9 @@
 
 
 			if (this.$route.params.tagId==null){
-
+				this.$axios.get("/article/getAllArchive").then(
+						value => this.activities=value.data
+				)
 			} else {
 				this.$axios.get("/article/getByTag?tagId="+this.$route.params.tagId).then(
 						value => {
