@@ -2,7 +2,7 @@
 	<div>
 		<el-row class="main" type="flex" justify="center">
 			<el-col :span="16" class="content">
-				<div id="artcle-info">
+				<div id="artcle-info" :style="head_background_img">
 					<h2 class="text-center"><strong>{{mArticle.title}}</strong></h2>
 					<!-- 描述：文章信息 -->
 					<div class="text-center timeAndView">
@@ -48,18 +48,20 @@
 					articleDtl:{
 						articleContent:''
 					}
-				}
+				},
+				head_background_img:'background-image: url("https://w354936210.oss-cn-zhangjiakou.aliyuncs.com/myblog/vue.jpg")'
 			}
 		},
 		methods:{
 
 		},
 		created() {
-			var articleId1=this.$route.params.id;
-			console.log(articleId1)
 			var articleId=this.$route.query.id;
 			this.$axios.get("/article/getOne?id="+articleId).then(
-					value => this.mArticle = value.data
+					value => {
+						this.mArticle = value.data;
+						this.head_background_img='background-image: url("'+this.mArticle.articleDtl.headImg+'")'
+					}
 			)
 		},
 		components: {

@@ -4,7 +4,7 @@
 		<el-timeline>
 			<el-timeline-item v-for="(activity, index) in activities" :key="index" :color="activity.color" :timestamp="activity.createTime" placement="top" @mouseenter="hoverLine(activity)">
 				<div class="line-item">
-					<router-link to="/article" tag="span">{{activity.title}}</router-link>
+					<router-link :to="{path:'/article',query:{id:activity.articleId}}"  tag="span">{{activity.title}}</router-link>
 				</div>
 			</el-timeline-item>
 		</el-timeline>
