@@ -25,7 +25,7 @@ const routes = [
     component:archive
 },
 {
-    path:'/tag/:name',
+    path:'/tag/:name/:tagId',
     name:'tag',
     component:archive
 },
