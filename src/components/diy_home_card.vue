@@ -14,9 +14,9 @@
                         </el-link>
                     </el-row>
                     <el-row style="margin-top: 0px">
-                            <div class="el-icon-view" style="color: #888;font-size: 12px;margin-right: 10px">460热度</div>
-                            <div class="el-icon-chat-dot-square" style="color: #888;font-size: 12px;margin-right: 10px">2条评论</div>
-                            <div class="el-icon-folder-opened" style="color: #888;font-size: 12px;margin-right: 10px">消息队列</div>
+                            <div class="el-icon-view" style="color: #888;font-size: 12px;margin-right: 10px;">&nbsp;460热度</div>
+                            <div class="el-icon-chat-dot-square" style="color: #888;font-size: 12px;margin-right: 10px">&nbsp;2条评论</div>
+                            <div class="el-icon-folder-opened" style="color: #888;font-size: 12px;margin-right: 10px">&nbsp;消息队列</div>
                     </el-row>
                     <el-row style="margin-top: 10px">
                         <div class="float-content">
