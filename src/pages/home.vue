@@ -1,6 +1,32 @@
-<template>
+<template xmlns:el-col="http://www.w3.org/1999/html">
     <div class="home">
-        <el-row id="artList" type="flex" justify="space-around">
+        <el-row type="flex" justify="space-around" >
+            <el-col :span="16" style="padding-left: 20px;padding-right: 20px" >
+                <header_card style="float: left;margin-left: 20px"/>
+                <header_card style="float: left;margin-left: 20px"/>
+                <header_card style="float: left;margin-left: 20px"/>
+            </el-col>
+            <el-col :span="6"></el-col>
+        </el-row>
+
+        <el-row>
+            <el-col :span="16">
+                <el-card  style="width:800px;border-radius: 10px;width: auto" >
+                    <el-row style="border-radius: 10px">
+                        <el-col  style="width:50%;height: 300px;background-color: #E6A23C;overflow: hidden;">
+                            <img class="art-banner" src="../assets/vue.jpg" >
+                        </el-col>
+                        <el-col style="width:50%;height: 300px;background-color: #3399ea;overflow: hidden;">
+                            <img class="art-banner" src="https://zouwang.vip/wp-content/uploads/2020/02/32025bbc0b7bf619f9953a2d6d3e9068-1024x576.jpg" >
+                        </el-col>
+                    </el-row>
+                </el-card>
+            </el-col>
+            <el-col :span="6">
+
+            </el-col>
+        </el-row>
+        <el-row id="artList" type="flex" justify="space-around" >
             <el-col :span="16">
                 <el-row class="art-item" v-for="article of articleList" v-bind:key="article.id">
                     <el-card shadow="hover">
@@ -41,7 +67,7 @@
                     >
                     </el-pagination>
                 </div>
-            </el-col>
+            </el-col >
             <el-col :span="6" class="hidden-sm-and-down" id="side">
                 <div class="item">
                     <tag></tag>
@@ -58,6 +84,7 @@
 <script>
     import friend from '../components/friend'
     import tag from '../components/tag'
+    import Header_card from "../components/header-card";
 
     export default {
         name: 'home',
@@ -101,7 +128,9 @@
         },
         components: {
             friend,
-            tag
+            tag,
+            Header_card
+
         },
         created() {
             this.$axios.post("/article/getAllArticleWithTag",this.page)
