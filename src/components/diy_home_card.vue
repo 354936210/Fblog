@@ -78,4 +78,13 @@
     .serif {
         font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Source Han Serif', source-han-serif-sc, 'PT Serif', 'SongTi SC', 'MicroSoft Yahei', Georgia, serif;
     }
+
+    .el-card {
+        border: 0px solid #EBEEF5;
+        background-color: #FFF;
+        color: #303133;
+        -webkit-transition: .3s;
+        transition: .3s;
+    }
+
 </style>
