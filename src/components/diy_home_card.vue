@@ -10,9 +10,9 @@
                         <div class="el-icon-time" style="color: #888;font-size: 12px;">{{article.createTime}}</div>
                     </el-row>
                     <el-row>
-                        <el-link :underline="false" type="titleType">
+                        <el-link :underline="false" >
                             <H3>
-                                {{articleTitle}}
+                                {{article.title}}
                             </H3>
                         </el-link>
                     </el-row>
@@ -46,8 +46,6 @@
         },
         data() {
             return {
-                titleType: 'info',
-
             }
         },
         methods:{
@@ -110,4 +108,11 @@
         transition: .3s;
     }
 
+    H3:hover{
+
+    }
+
+    .el-link.el-link--default:hover {
+        color: #FE9600;
+    }
 </style>

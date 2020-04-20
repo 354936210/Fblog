@@ -54,8 +54,8 @@ export default {
 		font-family: "microsoft yahei";
 	}
 	#content{
-		background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586885018925&di=0b29e66dfd475412b8671a60837a5883&imgtype=0&src=http%3A%2F%2Fgss0.baidu.com%2F9vo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2Ffcfaaf51f3deb48fd56ba723f61f3a292cf578c8.jpg");
-		background-attachment: fixed;
+		background-image: url("https://c-ssl.duitang.com/uploads/item/201206/26/20120626211934_eiKWL.thumb.1000_0.jpeg");
+		/*background-attachment: fixed;*/
 		background-color: #f9f9f9;
 		padding: 10px 0;
 	}

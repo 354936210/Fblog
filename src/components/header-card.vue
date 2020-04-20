@@ -99,4 +99,12 @@
 
         -moz-transform: translateX(100%);
     }
+
+    .el-card {
+        border: 0px solid #EBEEF5;
+        background-color: #FFF;
+        color: #303133;
+        -webkit-transition: .3s;
+        transition: .3s;
+    }
 </style>

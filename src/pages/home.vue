@@ -1,15 +1,15 @@
 <template xmlns:el-col="http://www.w3.org/1999/html">
     <div class="home">
         <el-row type="flex" justify="space-around" >
-            <el-col :span="16" style="padding-left: 20px;padding-right: 20px" >
-                <header_card style="float: left;margin-left: 20px"/>
-                <header_card style="float: left;margin-left: 20px"/>
-                <header_card style="float: left;margin-left: 20px"/>
-            </el-col>
-            <el-col :span="6"></el-col>
+            <div>
+                <header_card style="float: left;"/>
+                <header_card style="float: left;"/>
+                <header_card style="float: left;"/>
+            </div>
+
         </el-row>
-        <el-row class="art-item" v-for="(article,index) in articleList" v-bind:key="article.id">
-            <diy_home_card :article="article" :articleIndex="index"></diy_home_card>
+        <el-row type="flex" justify="space-around" class="art-item" v-for="(article,index) in articleList" v-bind:key="article.id">
+                <diy_home_card :article="article" :articleIndex="index"></diy_home_card>
         </el-row>
         <el-row id="artList" type="flex" justify="space-around" >
             <el-col :span="16">
@@ -53,14 +53,14 @@
                     </el-pagination>
                 </div>
             </el-col >
-            <el-col :span="6" class="hidden-sm-and-down" id="side">
-                <div class="item">
-                    <tag></tag>
-                </div>
-                <div class="item">
-                    <friend></friend>
-                </div>
-            </el-col>
+<!--            <el-col :span="6" class="hidden-sm-and-down" id="side">-->
+<!--                <div class="item">-->
+<!--                    <tag></tag>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <friend></friend>-->
+<!--                </div>-->
+<!--            </el-col>-->
         </el-row>
 
     </div>
