@@ -12,47 +12,48 @@
                 <diy_home_card :article="article" :articleIndex="index"></diy_home_card>
         </el-row>
         <el-row id="artList" type="flex" justify="space-around" >
-            <el-col :span="16">
-                <el-row class="art-item" v-for="article of articleList" v-bind:key="article.id">
-                    <el-card shadow="hover">
-                        <h5 >
-                            <div @click="article_more(article.id)"  class="art-title">{{article.title}}</div>
-                        </h5>
-                        <el-row class="art-info d-flex align-items-center justify-content-start">
-                            <div class="art-time"><i class="el-icon-time"></i>{{article.createTime}}</div>
-                            <div class="d-flex align-items-center tagItem"><img class="tag" src="../assets/tag.png"/>：
-                                <el-tag v-for="tag of article.articleTags" size="mini" @click="tagRoute(tag)" >{{tag.tagName}}</el-tag>
-                            </div>
-                        </el-row>
-                        <el-row class="art-body">
-                            <div class="side-img hidden-sm-and-down">
-                                <img class="art-banner" :src="article.imgLazy" v-if="article.imgLazy !='' && article.imgLazy !=null ">
-                                <img class="art-banner" src="../assets/vue.jpg" v-else>
-                            </div>
-                            <div class="side-abstract">
-                                <div class="art-abstract">
-                                    {{article.synopsis}}
-                                </div>
-                                <div class="art-more">
-                                        <el-button plain @click="article_more(article.id)">{{$t('home.readMore')}}</el-button>
-                                    <div class="view"><i class="el-icon-view"></i>{{article.browseVolume}}</div>
-                                </div>
-                            </div>
-                        </el-row>
-                    </el-card>
+            <div class="block pagination">
+                <el-pagination background layout="prev, pager, next"
+                               :current-page="page.current"
+                               :page-size="page.size"
+                               :total="page.total"
+                               @current-change="current_change"
+                >
+                </el-pagination>
+            </div>
+<!--            <el-col :span="16">-->
+<!--                <el-row class="art-item" v-for="article of articleList" v-bind:key="article.id">-->
+<!--                    <el-card shadow="hover">-->
+<!--                        <h5 >-->
+<!--                            <div @click="article_more(article.id)"  class="art-title">{{article.title}}</div>-->
+<!--                        </h5>-->
+<!--                        <el-row class="art-info d-flex align-items-center justify-content-start">-->
+<!--                            <div class="art-time"><i class="el-icon-time"></i>{{article.createTime}}</div>-->
+<!--                            <div class="d-flex align-items-center tagItem"><img class="tag" src="../assets/tag.png"/>：-->
+<!--                                <el-tag v-for="tag of article.articleTags" size="mini" @click="tagRoute(tag)" >{{tag.tagName}}</el-tag>-->
+<!--                            </div>-->
+<!--                        </el-row>-->
+<!--                        <el-row class="art-body">-->
+<!--                            <div class="side-img hidden-sm-and-down">-->
+<!--                                <img class="art-banner" :src="article.imgLazy" v-if="article.imgLazy !='' && article.imgLazy !=null ">-->
+<!--                                <img class="art-banner" src="../assets/vue.jpg" v-else>-->
+<!--                            </div>-->
+<!--                            <div class="side-abstract">-->
+<!--                                <div class="art-abstract">-->
+<!--                                    {{article.synopsis}}-->
+<!--                                </div>-->
+<!--                                <div class="art-more">-->
+<!--                                        <el-button plain @click="article_more(article.id)">{{$t('home.readMore')}}</el-button>-->
+<!--                                    <div class="view"><i class="el-icon-view"></i>{{article.browseVolume}}</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </el-row>-->
+<!--                    </el-card>-->
 
-                    <img class="star" src="../assets/star.png"/>
-                </el-row>
-                <div class="block pagination">
-                    <el-pagination background layout="prev, pager, next"
-                                   :current-page="page.current"
-                                   :page-size="page.size"
-                                   :total="page.total"
-                                   @current-change="current_change"
-                    >
-                    </el-pagination>
-                </div>
-            </el-col >
+<!--                    <img class="star" src="../assets/star.png"/>-->
+<!--                </el-row>-->
+<!--               -->
+<!--            </el-col >-->
 <!--            <el-col :span="6" class="hidden-sm-and-down" id="side">-->
 <!--                <div class="item">-->
 <!--                    <tag></tag>-->
