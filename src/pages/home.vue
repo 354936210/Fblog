@@ -8,23 +8,8 @@
             </el-col>
             <el-col :span="6"></el-col>
         </el-row>
-
-        <el-row>
-            <el-col :span="16">
-                <el-card  style="width:800px;border-radius: 10px;width: auto" >
-                    <el-row style="border-radius: 10px">
-                        <el-col  style="width:50%;height: 300px;background-color: #E6A23C;overflow: hidden;">
-                            <img class="art-banner" src="../assets/vue.jpg" >
-                        </el-col>
-                        <el-col style="width:50%;height: 300px;background-color: #3399ea;overflow: hidden;">
-                            <img class="art-banner" src="https://zouwang.vip/wp-content/uploads/2020/02/32025bbc0b7bf619f9953a2d6d3e9068-1024x576.jpg" >
-                        </el-col>
-                    </el-row>
-                </el-card>
-            </el-col>
-            <el-col :span="6">
-
-            </el-col>
+        <el-row class="art-item" v-for="(article,index) in articleList" v-bind:key="article.id">
+            <diy_home_card :article="article" :articleIndex="index"></diy_home_card>
         </el-row>
         <el-row id="artList" type="flex" justify="space-around" >
             <el-col :span="16">
@@ -85,6 +70,7 @@
     import friend from '../components/friend'
     import tag from '../components/tag'
     import Header_card from "../components/header-card";
+    import Diy_home_card from "../components/diy_home_card";
 
     export default {
         name: 'home',
@@ -95,7 +81,7 @@
                     size: 4,
                     current: 1,
                     total: 200
-                }
+                },
             }
         },
         methods:{
@@ -127,6 +113,7 @@
             }
         },
         components: {
+            Diy_home_card,
             friend,
             tag,
             Header_card
