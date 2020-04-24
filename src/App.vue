@@ -2,7 +2,7 @@
   <div class="app">
   	<f-header :class="{'navBarWrap':navBarFixed}"></f-header>
   	<el-row type="flex" justify="center" id="content">
-  		<el-col :xs="20" :md="20" :style="{'minHeight':minHeight+'px'}">
+  		<el-col :xs="24" :md="24" :style="{'minHeight':minHeight+'px'}">
   			<router-view></router-view>
   		</el-col>
   	</el-row>
@@ -54,7 +54,7 @@ export default {
 		font-family: "microsoft yahei";
 	}
 	#content{
-		background-image: url("https://c-ssl.duitang.com/uploads/item/201206/26/20120626211934_eiKWL.thumb.1000_0.jpeg");
+		background-image: url("https://w354936210.oss-cn-zhangjiakou.aliyuncs.com/myblog/%E5%B9%B3%E9%93%BA%E5%9B%BE%E7%89%87/%E7%A7%8B%E7%94%B0%E7%8A%AC.jpeg");
 		/*background-attachment: fixed;*/
 		background-color: #f9f9f9;
 		padding: 10px 0;
