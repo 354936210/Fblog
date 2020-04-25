@@ -10,7 +10,10 @@ import fHeader from './components/f-header'
 import fFooter from './components/f-footer'
 import i18n from './i18n/i18n'
 import axios from 'axios'
+import vuescroll from 'vuescroll';
+import 'vuescroll/dist/vuescroll.css';
 
+Vue.use(vuescroll);
 Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 Vue.use(ElementUI)

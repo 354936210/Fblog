@@ -1,7 +1,7 @@
 <template>
     <div>
-        <el-card :body-style="{ padding: '0px' }" style="width:800px;border-radius: 10px;" >
-            <el-row style="border-radius: 10px">
+        <el-card :body-style="{ padding: '0px' }" style="width:868px;border-radius: 10px;background: rgba(255,255,255,0.6)" >
+            <el-row style="border-radius: 10px;">
                 <el-col v-if="isShow(articleIndex)" style="width:55%;height: 300px;overflow: hidden;">
                     <img @click="article_more(article.id)" class="art-banner" :src="article.imgLazy" >
                 </el-col>

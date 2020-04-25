@@ -4,18 +4,18 @@
             <div style="height:150px;">
                 <el-card :body-style="{ padding: '0px' }" class="side-img hidden-sm-and-down">
                     <img @mouseover="show=true" @mouseout="show=false" class="art-banner"
-                         src="https://zouwang.vip/wp-content/uploads/2019/09/317534-1024x576.jpg">
+                         :src="top.topImgSrc">
                     <div>
                         <transition name="el-fade-in-linear">
                             <div v-show="show" class="transition-box">
                                 <transition name="el-zoom-in-center">
                                     <H3  v-show="show" class="cardTitle">
-                                        HELLO、BIRD
+                                        {{top.topTitle}}
                                     </H3>
                                 </transition>
                                 <transition name="el-zoom-in-bottom">
                                     <p  v-show="show" class="cardDescribe" >
-                                        hello bird建站教程
+                                        {{top.topDescribe}}
                                     </p>
                                 </transition>
                             </div>
@@ -30,6 +30,13 @@
 <script>
     export default {
         name: "header_card",
+        props:{
+            top:{
+                topImgSrc:'',
+                topTitle:'',
+                topDescribe:''
+            }
+        },
         data: () => ({
             show: false
         }),

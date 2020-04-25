@@ -1,26 +1,57 @@
 <template xmlns:el-col="http://www.w3.org/1999/html">
     <div class="home">
         <el-row type="flex" justify="space-around" >
-            <div>
-                <header_card style="float: left;"/>
-                <header_card style="float: left;"/>
-                <header_card style="float: left;"/>
-            </div>
-
+            <el-col :span="16" style="background: rgba(255,255,255,0.81)" >
+                <el-row type="flex" justify="center">
+                    <el-col :span="20">
+                    <div class="notice" style="margin-top:20px;">
+                        <div class="el-icon-bell">微信搜一搜“yhwl5213549” 关注博主</div>
+                    </div>
+                    </el-col>
+                </el-row>
+                <el-row type="flex" justify="center">
+                    <el-col :span="20">
+                        <div style="font-family: 'Ubuntu', sans-serif;margin-bottom: 20px"><img height="16px" width="16px" src="../assets/chuanmao.png">START:DASH</div>
+                    </el-col>
+                </el-row>
+                <el-row type="flex" justify="space-around" >
+                    <div>
+                        <header_card :top="topList[0]" style="float: left;margin-right: 30px"/>
+                        <header_card :top="topList[1]" style="float: left;margin-right: 30px"/>
+                        <header_card :top="topList[2]" style="float: left;"/>
+                    </div>
+                </el-row>
+                <el-row type="flex" justify="center">
+                    <el-col :span="20">
+                        <div style="font-family: 'Ubuntu', sans-serif;margin-bottom: 20px;margin-top: 20px"><img height="16px" width="16px" src="../assets/yezi.png">START:DASH</div>
+                    </el-col>
+                </el-row>
+                <el-row type="flex" justify="space-around" class="art-item" v-for="(article,index) in articleList" v-bind:key="article.id">
+                    <diy_home_card :article="article" :articleIndex="index"></diy_home_card>
+                </el-row>
+                <el-row id="artList" type="flex" justify="space-around" style="margin-bottom: 20px" >
+                    <div class="block pagination">
+                        <el-pagination background layout="prev, pager, next"
+                                       :current-page="page.current"
+                                       :page-size="page.size"
+                                       :total="page.total"
+                                       @current-change="current_change"
+                        >
+                        </el-pagination>
+                    </div>
+                </el-row>
+            </el-col>
         </el-row>
-        <el-row type="flex" justify="space-around" class="art-item" v-for="(article,index) in articleList" v-bind:key="article.id">
-                <diy_home_card :article="article" :articleIndex="index"></diy_home_card>
-        </el-row>
-        <el-row id="artList" type="flex" justify="space-around" >
-            <div class="block pagination">
-                <el-pagination background layout="prev, pager, next"
-                               :current-page="page.current"
-                               :page-size="page.size"
-                               :total="page.total"
-                               @current-change="current_change"
-                >
-                </el-pagination>
-            </div>
+<!--        <el-row id="artList" type="flex" justify="space-around" >-->
+<!--            <div class="block pagination">-->
+<!--                <el-pagination background layout="prev, pager, next"-->
+<!--                               :current-page="page.current"-->
+<!--                               :page-size="page.size"-->
+<!--                               :total="page.total"-->
+<!--                               @current-change="current_change"-->
+<!--                >-->
+<!--                </el-pagination>-->
+<!--            </div>-->
 <!--            <el-col :span="16">-->
 <!--                <el-row class="art-item" v-for="article of articleList" v-bind:key="article.id">-->
 <!--                    <el-card shadow="hover">-->
@@ -62,7 +93,7 @@
 <!--                    <friend></friend>-->
 <!--                </div>-->
 <!--            </el-col>-->
-        </el-row>
+<!--        </el-row>-->
 
     </div>
 </template>
@@ -83,6 +114,18 @@
                     current: 1,
                     total: 200
                 },
+
+                topList:[
+                    {   topImgSrc:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587849715974&di=56538fd10b1150b0bd4f1ef459be77c4&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2020-03-10%2F5e67229390479.png',
+                        topTitle:'建站教程',
+                        topDescribe:'VUE+ElementUI+springBoot 建站'},
+                    {   topImgSrc:'https://zouwang.vip/wp-content/uploads/2019/09/317534-1024x576.jpg',
+                        topTitle:'我的生涯',
+                        topDescribe:'我的职业生涯'},
+                    {   topImgSrc:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587849715972&di=7d07f032e2b12c52fad6f174e3a6ce83&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F65add7d63d61f755d0fbfc3156c12286a0d9c318.jpg',
+                        topTitle:'那年那天',
+                        topDescribe:'是那个夏天...'}
+                ]
             }
         },
         methods:{
@@ -148,7 +191,7 @@
     }
 
     .art-item {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         position: relative;
     }
 
@@ -230,5 +273,14 @@
 
     .pagination {
         background-color: #F9F9F9;
+    }
+
+    .notice {
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 1px dashed #7a776c;
+        color: #969696;
+        background: #fbfbfb50;
+        border-radius: 10px;
     }
 </style>
