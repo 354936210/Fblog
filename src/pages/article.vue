@@ -56,7 +56,7 @@
 		},
 		created() {
 			var articleId=this.$route.query.id;
-			this.$axios.get("/article/getOne?id="+articleId).then(
+			this.$axios.get(this.COMMON.httpUrl+"article/getOne?id="+articleId).then(
 					value => {
 						this.mArticle = value.data;
 						this.head_background_img='background-image: url("'+this.mArticle.imgLazy+'")'

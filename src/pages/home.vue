@@ -16,8 +16,8 @@
                 </el-row>
                 <el-row type="flex" justify="space-around" >
                     <div>
-                        <header_card :top="topList[0]" style="float: left;margin-right: 30px"/>
-                        <header_card :top="topList[1]" style="float: left;margin-right: 30px"/>
+                        <header_card :top="topList[0]" style="float: left;margin-right: 15px"/>
+                        <header_card :top="topList[1]" style="float: left;margin-right: 15px"/>
                         <header_card :top="topList[2]" style="float: left;"/>
                     </div>
                 </el-row>
@@ -140,7 +140,7 @@
             },
             current_change:function (val){
                 this.page.current=val
-                this.$axios.post("/article/getAllArticleWithTag",this.page)
+                this.$axios.post(this.COMMON.httpUrl+"article/getAllArticleWithTag",this.page)
                     .then(
                         value => {this.articleList = value.data.records;
                         this.page.total=value.data.total}
@@ -164,7 +164,7 @@
 
         },
         created() {
-            this.$axios.post("/article/getAllArticleWithTag",this.page)
+            this.$axios.post(this.COMMON.httpUrl+"article/getAllArticleWithTag",this.page)
                 .then(
                     value => {this.articleList = value.data.records;
                         this.page.total=value.data.total}

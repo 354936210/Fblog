@@ -27,11 +27,11 @@
 		created() {
 
 			if (this.$route.params.tagId==null){
-				this.$axios.get("/article/getAllArchive").then(
+				this.$axios.get(this.COMMON.httpUrl+"article/getAllArchive").then(
 						value => this.activities=value.data
 				)
 			} else {
-				this.$axios.get("/article/getByTag?tagId="+this.$route.params.tagId).then(
+				this.$axios.get(this.COMMON.httpUrl+"article/getByTag?tagId="+this.$route.params.tagId).then(
 						value => {
 							this.activities=value.data
 						}

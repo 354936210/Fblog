@@ -45,7 +45,7 @@
 			}
 		},
 		created() {
-			this.$axios.get("/tag/getWithNum").then(
+			this.$axios.get(this.COMMON.httpUrl+"tag/getWithNum").then(
 					value => {
 						this.tagList=value.data;
 					}

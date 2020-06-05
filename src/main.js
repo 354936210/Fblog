@@ -12,7 +12,9 @@ import i18n from './i18n/i18n'
 import axios from 'axios'
 import vuescroll from 'vuescroll';
 import 'vuescroll/dist/vuescroll.css';
+import common from './components/common'
 
+Vue.prototype.COMMON = common
 Vue.use(vuescroll);
 Vue.prototype.$axios = axios
 Vue.config.productionTip = false
