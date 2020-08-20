@@ -102,16 +102,16 @@
 	.dl-blog dd {
 		margin-left: 30px;
 	}
-	
+
 	.dl-blog .icon {
 		width: 20px;
 		height: 20px;
 	}
-	
+
 	.title {
 		margin-top: 40px;
 	}
-	
+
 	.statement {
 		border-left: 3px solid #F56C6C;
 		padding: 20px;

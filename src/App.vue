@@ -1,3 +1,4 @@
+
 <template>
   <div class="app">
   	<f-header :class="{'navBarWrap':navBarFixed}"></f-header>

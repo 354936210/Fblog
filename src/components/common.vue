@@ -3,7 +3,7 @@
 </template>
 
 <script type="text/javascript">
-    const httpUrl = 'http://localhost:8080/'
+    const httpUrl = 'https://localhost:8080/'
     function commonFun() {
         console.log("公共方法")
     }

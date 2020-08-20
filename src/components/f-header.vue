@@ -12,6 +12,7 @@
 				<template slot="title">{{$t("header.language")}}</template>
 				<el-menu-item @click="toggleLang('zh')">{{$t("header.chinaese")}}</el-menu-item>
 				<el-menu-item @click="toggleLang('en')">{{$t("header.english")}}</el-menu-item>
+				<el-menu-item @click="toggleLang('en')"></el-menu-item>
 			</el-submenu>
 
 		</el-menu>

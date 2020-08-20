@@ -1,8 +1,6 @@
 <template>
     <div>
-        <card-img></card-img>
-        <card-img></card-img>
-        <card-img></card-img>
+        <mclock></mclock>
     </div>
 </template>
 
@@ -10,9 +8,10 @@
     import Header_card from "../components/header-card";
     import Diy_home_card from "../components/diy_home_card";
     import CardImg from "../components/cardImg";
+    import Mclock from "../components/mclock";
     export default {
         name: "mytest",
-        components: {CardImg, Diy_home_card, Header_card},
+        components: {Mclock, CardImg, Diy_home_card, Header_card},
         comments:{
             Header_card,Diy_home_card,
             CardImg
