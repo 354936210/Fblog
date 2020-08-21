@@ -62,7 +62,7 @@
         font-family: 'Share Tech Mono', monospace;
         color: #ffffff;
         text-align: center;
-        position: absolute;
+        position: center;
         left: 50%;
         top: 50%;
         -webkit-transform: translate(-50%, -50%);

@@ -1,8 +1,10 @@
 module.exports = {
     header: {
+		search:'查询',
         home: '首页',
         archive: '归档',
         about: '关于',
+		testPage:'测试页面',
         language: '语言',
         chinaese: '中文',
         english: 'English'

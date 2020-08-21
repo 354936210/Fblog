@@ -1,8 +1,10 @@
 module.exports = {
     header: {
+    	search:'Search',
         home: 'Home',
         archive: 'Archive',
         about: 'About',
+		testPage:'TestPage',
         language: 'Language',
         chinaese: '中文',
         english: 'English'

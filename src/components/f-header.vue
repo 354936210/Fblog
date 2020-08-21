@@ -3,8 +3,8 @@
 		<el-menu :default-active="activeIndex" class="d-flex" mode="horizontal" :router="true" type="flex">
 
 			<el-menu-item  class="mr-auto">Hello Bird</el-menu-item>
-			<el-menu-item @click="show3 = !show3" class="el-icon-search">查询</el-menu-item>
-			<el-menu-item index="/mytest">测试页面</el-menu-item>
+			<el-menu-item @click="show3 = !show3" class="el-icon-search">{{$t("header.search")}}</el-menu-item>
+			<el-menu-item index="/mytest">{{$t("header.testPage")}}</el-menu-item>
 			<el-menu-item index="/home">{{$t("header.home")}}</el-menu-item>
 			<el-menu-item index="/archive">{{$t("header.archive")}}</el-menu-item>
 			<el-menu-item index="/about">{{$t("header.about")}}</el-menu-item>
@@ -34,7 +34,12 @@
 </template>
 
 <script>
+	import Mclock from "../components/mclock";
 	export default {
+		components: {Mclock},
+		comments:{
+			Mclock
+		},
 		data() {
 			return {
 				activeIndex: '/home',

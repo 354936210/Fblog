@@ -29,7 +29,7 @@
                 <el-row type="flex" justify="space-around" class="art-item" v-for="(article,index) in articleList" v-bind:key="article.id">
                     <diy_home_card :article="article" :articleIndex="index"></diy_home_card>
                 </el-row>
-                <el-row id="artList" type="flex" justify="space-around" style="margin-bottom: 20px" >
+                <el-row id="artList" type="flex" justify="space-around" style="margin-bottom: 20px" v-if="articleList.length>0" >
                     <div class="block pagination">
                         <el-pagination background layout="prev, pager, next"
                                        :current-page="page.current"
@@ -112,7 +112,7 @@
                 page:{
                     size: 4,
                     current: 1,
-                    total: 200
+                    total: 0
                 },
 
                 topList:[
