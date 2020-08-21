@@ -2,7 +2,7 @@
 <template>
   <div class="app">
   	<f-header :class="{'navBarWrap':navBarFixed}"></f-header>
-  	<el-row type="flex" justify="center" id="content">
+  	<el-row type="flex" justify="center" id="content" :style="stylestr" >
   		<el-col :xs="20" :md="20" :style="{'minHeight':minHeight+'px'}">
   			<router-view></router-view>
   		</el-col>
@@ -17,7 +17,8 @@ export default {
   data () {
   	return{
   		minHeight: 0,
-  		navBarFixed: false
+  		navBarFixed: false,
+		stylestr:''
   	};
   },
   components: {
@@ -46,6 +47,8 @@ export default {
   		window.onresize = function () {
   			that.minHeight = document.documentElement.clientHeight
   		}
+
+  		this.stylestr="background-image:url('http://w354936210.oss-cn-zhangjiakou.aliyuncs.com/myblog/%E5%B9%B3%E9%93%BA%E5%9B%BE%E7%89%87/%E9%BB%84%E5%BA%95-%E9%BB%91%E7%82%B9.jpeg')";
   	}
 }
 </script>
@@ -55,7 +58,6 @@ export default {
 		font-family: "microsoft yahei";
 	}
 	#content{
-		background-image: url("http://w354936210.oss-cn-zhangjiakou.aliyuncs.com/myblog/%E5%B9%B3%E9%93%BA%E5%9B%BE%E7%89%87/%E9%BB%84%E5%BA%95-%E9%BB%91%E7%82%B9.jpeg");
 		/*background-attachment: fixed;*/
 		background-color: #f9f9f9;
 	}
